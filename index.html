@@ -6,10 +6,42 @@
     <title>My Tableau Dashboard Portfolio</title>
 </head>
 <body>
+
+    <h1>2021 Dashboard</h1>
+    <!-- First Dashboard -->
+    <div class='tableauPlaceholder' id='viz1727649900085' style='position: relative'>
+        <noscript>
+            <a href='#'>
+                <img alt='2021' src='https://public.tableau.com/static/images/23/2379873/2021/1_rss.png' style='border: none' />
+            </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='2379873/2021' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/23/2379873/2021/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+        </object>
+    </div>
+
     <h1>Income Analysis Dashboard</h1>
-    <div class='tableauPlaceholder' id='viz1727648231051' style='position: relative'>
-        <noscript><a href='#'><img alt=' ' src='https://public.tableau.com/static/images/In/Income_Analysis_17276481862700/Income_Analysis/1_rss.png' style='border: none' /></a></noscript>
-        <object class='tableauViz'  style='display:none;'>
+    <!-- Second Dashboard -->
+    <div class='tableauPlaceholder' id='viz1727648231051' style='position: relative; margin-top: 50px;'>
+        <noscript>
+            <a href='#'>
+                <img alt='Income Analysis' src='https://public.tableau.com/static/images/In/Income_Analysis_17276481862700/Income_Analysis/1_rss.png' style='border: none' />
+            </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
             <param name='embed_code_version' value='3' />
             <param name='site_root' value='' />
@@ -27,23 +59,32 @@
         </object>
     </div>
 
+    <!-- JavaScript for both dashboards -->
     <script type='text/javascript'>
-        var divElement = document.getElementById('viz1727648231051');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        if (divElement.offsetWidth > 800) {
-            vizElement.style.width = '100%';
-            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-        } else if (divElement.offsetWidth > 500) {
-            vizElement.style.width = '100%';
-            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-        } else {
-            vizElement.style.width = '100%';
-            vizElement.style.minHeight = '2450px';
-            vizElement.style.maxHeight = (divElement.offsetWidth * 1.77) + 'px';
+        function loadViz(id, widthLarge, heightLarge, heightSmall) {
+            var divElement = document.getElementById(id);
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if (divElement.offsetWidth > 800) {
+                vizElement.style.width = widthLarge + 'px';
+                vizElement.style.height = heightLarge + 'px';
+            } else if (divElement.offsetWidth > 500) {
+                vizElement.style.width = widthLarge + 'px';
+                vizElement.style.height = heightLarge + 'px';
+            } else {
+                vizElement.style.width = '100%';
+                vizElement.style.height = heightSmall + 'px';
+            }
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
         }
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+        // Load the first dashboard
+        loadViz('viz1727649900085', 1000, 827, 977);
+
+        // Load the second dashboard
+        loadViz('viz1727648231051', 1000, 827, 977);
     </script>
+
 </body>
 </html>
